@@ -22,6 +22,6 @@ export const curry = function (...curriedArgs) {
   return function(...newArgs){
     // "this", in this scope, will refer to the new function
     // that we create.
-    return originalFunction.apply(this, curriedArgs.concat(newArgs))
-  }
-}
+    return originalFunction.apply(this, curriedArgs.concat(newArgs));
+  };
+};

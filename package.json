@@ -5,6 +5,9 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+    "test": "./node_modules/.bin/mocha --require babel-polyfill --compilers js:babel-register --recursive",
+    "lint": "./node_modules/.bin/eslint src/js/**",
+    "fix": "./node_modules/.bin/eslint --fix src/js/**",
     "build": "rm -rf ./build && NODE_ENV=\"production\" webpack -p",
     "start:dev": "NODE_ENV=\"development\" ./node_modules/webpack-dashboard/bin/webpack-dashboard.js -t 'Preview Mode - React-Redux Boilerplate' -- ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "start:devblind": "NODE_ENV=\"development\" ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",

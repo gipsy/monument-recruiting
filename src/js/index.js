@@ -5,9 +5,13 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {syncHistoryWithStore, routerReducer, push} from 'react-router-redux';
 import store, {routeTo} from './store/configureStore';
-import {Router, browserHistory} from 'react-router';
+import {Router, IndexRoute, Route, browserHistory} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import App from './containers/App';
+import Placeholder from './containers/Placeholder';
+import Main from './containers/Main';
+import Admin from './containers/admin/Admin';
+import NotFound from './components/NotFound';
 
 injectTapEventPlugin();
 
@@ -15,56 +19,18 @@ injectTapEventPlugin();
 // to window.location.
 const history = syncHistoryWithStore(browserHistory, store);
 
-// these routes are in this object format so that they can be loaded
-// asynchronously through code-splitting.
-const errorLoading = (err) => console.error('Dynamic page loading failed', err);
+/* While we could, we choose NOT to use code splitting */
 
-const loadRoute = (callback) => (fn) => callback(null, fn.default);
-
-// Each route will load it's javascript during runtime, in seperate bundles.
-export const routes = {
-  component: App,
-  indexRoute: {
-        getComponent(location, cb) {
-          System.import ('./containers/Placeholder').then(loadRoute(cb)).catch(errorLoading);
-        }
-      },
-  childRoutes: [
-    {
-      path: '/',
-      getComponent(location, cb) {
-        System.import ('./containers/Placeholder').then(loadRoute(cb)).catch(errorLoading);
-      }
-    },
-    {
-      path: '/main',
-      customProp: 'you can pass props to the component like this - it will be known as this.props.route.customProp',
-      getComponent(location, cb) {
-        System.import ('./containers/Main').then(loadRoute(cb)).catch(errorLoading);
-      }
-    },
-    {
-      path: '/admin',
-      getComponent(location, cb) {
-        System.import ('./containers/admin/Admin').then(loadRoute(cb)).catch(errorLoading);
-      }
-    },
-    {
-      path: '/child',
-      getComponent(location, cb) {
-        System.import ('./containers/Placeholder').then(loadRoute(cb)).catch(errorLoading);
-      }
-    }, {
-      path: '*',
-      getComponent(location, cb) {
-        System.import ('./components/NotFound').then(loadRoute(cb)).catch(errorLoading);
-      }
-    }
-  ]
-}
 
 // Render it to DOM
 ReactDOM.render(
   <Provider store={store}>
-  <Router history={history} routes={routes}/>
+  <Router history={history}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Main} />
+      <Route path={'placeholder'} component={Placeholder} />
+      <Route path={'admin'} component={Admin}/>
+      <Route path={'*'} component={NotFound}/>
+    </Route>
+  </Router>
 </Provider>, document.getElementById('root'));
