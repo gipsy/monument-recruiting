@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 const jsSourcePath = path.resolve(__dirname, './src/js');
 const buildPath = path.join(__dirname, './build');
@@ -18,10 +18,10 @@ const context = jsSourcePath;
 
 const entry = require('./webpack/entry');
 const output = require('./webpack/output')({buildPath});
-const resolve = require('./webpack/resolve')({nodePath, jsSourcePath})
-const plugins = require('./webpack/plugins')({isProduction, sourcePath, buildPath})
+const resolve = require('./webpack/resolve')({nodePath, jsSourcePath, imgPath});
+const plugins = require('./webpack/plugins')({isProduction, sourcePath, buildPath});
 const devServer = require('./webpack/devServer')({isProduction});
-const rules = require('./webpack/rules')({sourcePath, jsSourcePath, nodePath, isProduction});
+const rules = require('./webpack/rules')({sourcePath, jsSourcePath, imgPath, nodePath, isProduction});
 
 module.exports = {
   devtool,

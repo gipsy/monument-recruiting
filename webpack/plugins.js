@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -23,12 +24,32 @@ const plugins = ({ isProduction, sourcePath, buildPath }) => {
       path: buildPath,
       filename: "index.html"
     }),
+    new ExtractTextPlugin({ filename: 'style-[contenthash:8].css', disable: false, allChunks: true }),
     new webpack.LoaderOptionsPlugin({
       options: {
+        cssLoader: {
+          module: true,
+          modules: true,
+          allowMultiple: true,
+          sourceMap: !isProduction,
+          importLoaders: 1,
+          localIdentName: "[name]--[local]--[hash:base64:8]"
+        },
+        sassLoader: {
+          outputStyle: "expanded",
+          sourceMap: !isProduction,
+        },
+        resolveUrlLoader: {
+          keepQuery: true,
+          absolute: true
+        },
         postcss: [
-          autoprefixer({
-            browsers: ["last 3 version", "ie >= 10"]
-          })
+          // #TODO assure it works on IE
+          require("postcss-import"),
+          require("postcss-cssnext"),
+          // autoprefixer({
+          //   browsers: ["last 3 version", "ie >= 10"]
+          // })
         ],
         context: sourcePath
       }
@@ -69,7 +90,7 @@ const plugins = ({ isProduction, sourcePath, buildPath }) => {
     //     threshold: 10240,
     //     minRatio: 0.8
     //   })
-  ])
+    ])
   }
   return pluginArray;
 };

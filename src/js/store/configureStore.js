@@ -33,4 +33,4 @@ export const routeTo = (url) => {
   store.dispatch(push(url));
 };
 
-export default store
+export default store;

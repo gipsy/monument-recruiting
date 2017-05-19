@@ -4,6 +4,7 @@ const entry = {
     'react-dom',
     'react-redux',
     'react-router',
+    'react-router-dom',
     'react',
     'redux',
   ]
