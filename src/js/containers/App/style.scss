@@ -1,15 +1,19 @@
 @import '../../theme/main.scss';
 
-main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  > section {
-    display: flex;
-    flex-direction: column;
-  }
-  section {
-    height: 400px;
-    flex: 1;
-  }
+.App {
+  background-color: $verylightgray;
 }
+
+// main {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+//   > section {
+//     display: flex;
+//     flex-direction: column;
+//   }
+//   section {
+//     height: 400px;
+//     flex: 1;
+//   }
+// }

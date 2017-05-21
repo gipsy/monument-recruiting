@@ -1,5 +1,15 @@
-@import './variables.scss';
-@import '~font-awesome/scss/font-awesome.scss';
+@import './variables';
+@import '~font-awesome/scss/font-awesome';
+
+@import './mixins';
+
+// Components
+@import './components/component.Page';
+@import './components/component.Navigation';
+@import './components/component.Logo';
+@import './components/component.NavLink';
+@import './components/component.ToolbarFixed';
+@import './components/component.FixedAppBar';
 
 html, body {
   -webkit-overflow-scrolling: touch;
@@ -10,19 +20,13 @@ html, body {
 body {
   box-sizing: border-box;
   margin: 0;
-  padding: 0 0.8em;
+  // padding: 0 0.8em;
   font-family: $font-default;
   font-size: 16px;
 }
 
-@media only screen and (min-width: 48em) {
-  body {
-    padding: 0 3em;
-  }
-}
-
 :global(#root) {
-  height: 100%
+  height: 100%;
 }
 
 *, *:before, *:after {

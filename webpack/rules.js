@@ -20,6 +20,10 @@ const rules = ({sourcePath, jsSourcePath, imgPath, nodePath, isProduction}) => [
     }
   }, {
     test: /.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
+    include: [
+      imgPath,
+      nodePath
+    ],
     loader: 'url-loader',
     options: {
       limit: 10000

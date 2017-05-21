@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import reduxify from '../../util/reduxify';
 
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 class Page extends Component {
   constructor(props) {
     super(props);
-    console.log('Page')
   }
   
   componentDidMount() { }
 
   render() {
     return (
-      <div className="page">
-        {this.props.children}
+      <div className="Page">
+        <Grid fluid>
+          <Row>
+            <Col xs={6} md={3}>
+              {this.props.children}
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }

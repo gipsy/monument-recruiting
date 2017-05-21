@@ -1,0 +1,13 @@
+.Navigation {
+  position: relative;
+  display: flex;
+  margin-bottom: 3em;
+  height: 56px;
+  background-color: $white;
+}
+
+@media only screen and (max-width: 28em) {
+  .Navigation {
+    flex-wrap: wrap;
+  }
+}

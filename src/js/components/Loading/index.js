@@ -1,21 +1,20 @@
 import React from 'react';
 import reduxify from '../../util/reduxify';
-import s from './style';
 
 const Loading = () => (
-  <div className={s.timelineItem}>
-    <ul className={s.animatedBackground}>
-      <li className={s.headerTop} />
-      <li className={s.headerRight} />
-      <li className={s.headerBottom} />
-      <li className={s.subheaderRight} />
-      <li className={s.subheaderBottom} />
-      <li className={s.contentTop} />
-      <li className={s.contentFirstEnd} />
-      <li className={s.contentSecondLine} />
-      <li className={s.contentSecondEnd} />
-      <li className={s.contentThirdLine} />
-      <li className={s.contentThirdEnd} />
+  <div className="timelineItem">
+    <ul className="animatedBackground">
+      <li className="headerTop" />
+      <li className="headerRight" />
+      <li className="headerBottom" />
+      <li className="subheaderRight" />
+      <li className="subheaderBottom" />
+      <li className="contentTop" />
+      <li className="contentFirstEnd" />
+      <li className="contentSecondLine" />
+      <li className="contentSecondEnd" />
+      <li className="contentThirdLine" />
+      <li className="contentThirdEnd" />
     </ul>
   </div>
 );

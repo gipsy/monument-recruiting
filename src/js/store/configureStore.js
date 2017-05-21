@@ -7,8 +7,9 @@ import {
   applyMiddleware,
   compose,
 } from 'redux';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux';
+import { responsiveStoreEnhancer } from 'redux-responsive';
 
 import rootReducer from '../reducers/index';
 import { createLogger } from 'redux-logger';
@@ -22,8 +23,8 @@ let logger = createLogger({
 });
 
 const enhancer =
-  isDev ? compose(applyMiddleware(routerMiddleware(browserHistory), logger))
-        : compose(applyMiddleware(routerMiddleware(browserHistory)));
+  isDev ? compose(responsiveStoreEnhancer, applyMiddleware(routerMiddleware(browserHistory), logger))
+        : compose(responsiveStoreEnhancer, applyMiddleware(routerMiddleware(browserHistory)));
 
 const configureStore = (initialState) => createStore(rootReducer, initialState, enhancer);
 

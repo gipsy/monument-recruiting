@@ -9,8 +9,12 @@ import {Router, IndexRoute, Route, browserHistory} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import App from './containers/App';
-import Main from './routes/Main';
-import Admin from './routes/Admin';
+import Register from './routes/Register';
+import Login from './routes/Login';
+import Dashboard from './routes/Dashboard';
+import Review from './routes/Review';
+import Documents from './routes/Documents';
+import Dispute from './routes/Dispute';
 import NotFound from './components/NotFound';
 
 injectTapEventPlugin();
@@ -27,9 +31,14 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Main} />
-        <Route path={'/admin'} component={Admin}/>
-        <Route path={'*'} component={NotFound}/>
+        <IndexRoute component={Dashboard} />
+        <Route path={'/register'} component={Register} />
+        <Route path={'/login'} component={Login} />
+        <Route path={'/dashboard'} component={Dashboard} />
+        <Route pash={'/review'} component={Review} />
+        <Route path={'/documents'} component={Documents} />
+        <Route path={'/dispute'} component={Dispute} />
+        <Route path={'*'} component={NotFound} />
       </Route>
     </Router>
   </Provider>, document.getElementById('root')

@@ -1,0 +1,17 @@
+.FixedAppBar {
+
+  &__UserActions {
+    flex: 1 1 0%;
+    text-align: right;
+  }
+
+  &__UserNotifications {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: bottom;
+  }
+
+  &__UserMenu {
+    display: inline-block;
+  }
+}
