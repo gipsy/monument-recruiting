@@ -14,7 +14,7 @@ class Page extends Component {
       <div className="Page">
         <Grid fluid>
           <Row>
-            <Col xs={6} md={3}>
+            <Col xs={12} md={12}>
               {this.props.children}
             </Col>
           </Row>

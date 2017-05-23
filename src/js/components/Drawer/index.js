@@ -51,7 +51,6 @@ const Drawer = () => (
           return(
             <div key={result.label}>
               <Link to={result.linkTo}
-                onClick={self.revealMenu}
                 style={{textDecoration: 'none'}}>
                 <MenuItem>
                   <FontAwesome name={result.fontAwesomeIcon} />

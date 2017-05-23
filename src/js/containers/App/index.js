@@ -13,7 +13,7 @@ import personalTheme from '../../theme/personalTheme';
 
 // #TODO investigate JSS vs Aphrodite vs current
 // import { StyleSheet, css } from 'aphrodite';
-import './style';
+import './style.scss';
 
 const App = (props) => (
   <MuiThemeProvider theme={personalTheme}>
