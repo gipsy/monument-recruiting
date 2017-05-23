@@ -15,6 +15,7 @@ import Dashboard from './routes/Dashboard';
 import Review from './routes/Review';
 import Documents from './routes/Documents';
 import Dispute from './routes/Dispute';
+import AddSearches from './routes/AddSearches';
 import NotFound from './components/NotFound';
 
 injectTapEventPlugin();
@@ -38,6 +39,7 @@ ReactDOM.render(
         <Route pash={'/review'} component={Review} />
         <Route path={'/documents'} component={Documents} />
         <Route path={'/dispute'} component={Dispute} />
+        <Route path={'/searches'} component={AddSearches} />
         <Route path={'*'} component={NotFound} />
       </Route>
     </Router>

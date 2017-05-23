@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import reduxify from '../../util/reduxify';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
@@ -25,4 +24,4 @@ class Page extends Component {
   }
 };
 
-export default reduxify({}, [], Page);
+export default Page;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'react-router';
-import reduxify from '../../util/reduxify';
 
 import { Menu, MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
@@ -37,4 +36,4 @@ const Authenticated = (props) => (
   </Menu>
 );
 
-export default reduxify({}, [], Authenticated);
+export default Authenticated;

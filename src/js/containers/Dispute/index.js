@@ -1,5 +1,4 @@
 import React from 'react';
-import reduxify from '../../util/reduxify';
 
 const Dispute = (props) =>
   (
@@ -9,4 +8,4 @@ const Dispute = (props) =>
     </div>
   )
 
-export default reduxify({}, [], Dispute);
+export default Dispute;

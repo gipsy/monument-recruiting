@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "aphrodite": "^1.2.0",
+    "aphrodite-jss": "^1.1.0",
     "babel-cli": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
@@ -99,8 +100,10 @@
     "redux": "^3.3.1",
     "redux-form": "^6.7.0",
     "redux-form-material-ui": "^4.2.0",
+    "redux-menu": "^0.0.2",
     "redux-responsive": "^4.1.1",
     "redux-thunk": "^2.0.1",
+    "reselect": "^3.0.1",
     "superagent": "^3.5.2"
   },
   "description": "Boilerplate for React, Redux, Webpack 2, React-Router, etc.",

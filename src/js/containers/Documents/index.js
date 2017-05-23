@@ -1,5 +1,4 @@
 import React from 'react';
-import reduxify from '../../util/reduxify';
 
 const Documents = (props) =>
   (
@@ -12,4 +11,4 @@ const Documents = (props) =>
     </div>
   )
 
-export default reduxify({}, [], Documents);
+export default Documents;

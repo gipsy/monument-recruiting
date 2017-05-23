@@ -43,4 +43,4 @@ class Chunk extends Component {
   }
 }
 
-export default reduxify({}, [], Chunk);
+export default Chunk;

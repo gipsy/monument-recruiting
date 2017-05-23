@@ -51,4 +51,4 @@ const App = (props) => (
   </MuiThemeProvider>
 );
 
-export default reduxify({}, [], App);
+export default App;

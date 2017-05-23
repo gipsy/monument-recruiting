@@ -31,12 +31,12 @@ const data = [
   },
   {
     linkTo: '/documents',
-    fontAwesomeIcon: 'check',
+    fontAwesomeIcon: 'file',
     label: 'Documents'
   },
   {
-    linkTo: '/checkout',
-    fontAwesomeIcon: 'check',
+    linkTo: '/searches',
+    fontAwesomeIcon: 'cart-plus',
     label: 'Add Searches'
   },
 ];
@@ -50,7 +50,7 @@ const Drawer = () => (
         {data.map(function(result) {
           return(
             <div key={result.label}>
-              <Link to={result.label}
+              <Link to={result.linkTo}
                 onClick={self.revealMenu}
                 style={{textDecoration: 'none'}}>
                 <MenuItem>
@@ -66,4 +66,4 @@ const Drawer = () => (
   </ResponsiveDrawer>
 )
 
-export default reduxify({}, [], Drawer);
+export default Drawer;

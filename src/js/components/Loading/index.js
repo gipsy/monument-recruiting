@@ -1,5 +1,4 @@
 import React from 'react';
-import reduxify from '../../util/reduxify';
 
 const Loading = () => (
   <div className="timelineItem">
@@ -19,4 +18,4 @@ const Loading = () => (
   </div>
 );
 
-export default reduxify({}, [], Loading);
+export default Loading;

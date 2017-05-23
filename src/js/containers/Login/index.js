@@ -8,4 +8,4 @@ const Login = (props) =>
     </div>
   )
 
-export default reduxify({}, [], Login);
+export default Login;

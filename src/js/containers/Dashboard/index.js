@@ -8,4 +8,4 @@ const Dashboard = (props) =>
     </div>
   )
 
-export default reduxify({}, [], Dashboard);
+export default Dashboard;

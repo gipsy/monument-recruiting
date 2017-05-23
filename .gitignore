@@ -4,3 +4,4 @@ dist
 .DS_store
 build
 server/lib
+npm-debug.log 
