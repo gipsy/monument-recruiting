@@ -9,17 +9,18 @@ import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import Icon from 'material-ui/Icon';
 import Button from 'material-ui/Button';
-
 import Warning from 'material-ui-icons/Warning';
+import { StyleSheet, css } from 'aphrodite/no-important';
+
 
 const UserNotificationsMenu = (props) => (
   <List>
     <ListItem
-      className="FixedAppBar__UserNotificationsMenu__ListItem"
+      className={css(styles.FixedAppBar__UserNotificationsMenu__ListItem)}
       divider={true}
     >
       <Icon
-        className="FixedAppBar__UserNotificationsMenu__ListItemIcon"
+        className={css(styles.FixedAppBar__UserNotificationsMenu__ListItemIcon)}
         accent={true}
       >
         <Warning />
@@ -31,9 +32,9 @@ const UserNotificationsMenu = (props) => (
           as soon as possible.
         </span>
       </p>
-      <div className="FixedAppBar__UserNotificationsMenu__Footer">
+      <div className={css(styles.FixedAppBar__UserNotificationsMenu__Footer)}>
         <Button
-          className="FixedAppBar__UserNotificationsMenu__Button"
+          className={css(styles.FixedAppBar__UserNotificationsMenu__Button)}
           label="Review"
           accent={true}
           raised={true}
@@ -42,7 +43,7 @@ const UserNotificationsMenu = (props) => (
           }
         />
         <Button
-          className="FixedAppBar__UserNotificationsMenu__Button"
+          className={css(styles.FixedAppBar__UserNotificationsMenu__Button)}
           label="Dismiss"
           raised={true}
           children={
@@ -52,7 +53,7 @@ const UserNotificationsMenu = (props) => (
       </div>
     </ListItem>
     <ListItem divider={true}>
-      <Icon className="FixedAppBar__UserNotificationsMenu__ListItemIcon">
+      <Icon className={css(styles.FixedAppBar__UserNotificationsMenu__ListItemIcon)}>
         <Warning />
       </Icon>
       <p>
@@ -61,7 +62,7 @@ const UserNotificationsMenu = (props) => (
       </p>
     </ListItem>
     <ListItem divider={true}>
-      <Icon className="FixedAppBar__UserNotificationsMenu__ListItemIcon">
+      <Icon className={css(styles.FixedAppBar__UserNotificationsMenu__ListItemIcon)}>
         <Warning />
       </Icon>
       <p>
@@ -71,5 +72,31 @@ const UserNotificationsMenu = (props) => (
     </ListItem>
   </List>
 );
+
+const styles = StyleSheet.create({
+
+  FixedAppBar__UserNotificationsMenu__ListItem: {
+    paddingBottom: '60px',
+  },
+
+  FixedAppBar__UserNotificationsMenu__ListItemIcon: {
+    margin: '20px 15px 0 0',
+    alignSelf: 'flex-start',
+    color: 'red',
+  },
+
+  FixedAppBar__UserNotificationsMenu__Footer: {
+    position: 'absolute',
+    flex: 'none',
+    textAlign: 'center',
+    left: '0',
+    right: '0',
+    bottom: '20px',
+  },
+
+  FixedAppBar__UserNotificationsMenu__Button: {
+    margin: '0 10px',
+  }
+});
 
 export default UserNotificationsMenu;

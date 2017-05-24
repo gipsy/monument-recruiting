@@ -7,21 +7,7 @@ import { Link } from 'react-router';
 import { ResponsiveDrawer } from 'material-ui-responsive-drawer';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import FontAwesome from 'react-fontawesome';
-
-const styles={
-  drawer_container:{
-    backgroundColor: 'green',
-    height: '100%',
-    width: '150px'
-  },
-  drawer_header:{
-    margin: '0px',
-    paddingBottom: '10px'
-  },
-  drawer_header_container:{
-    padding: '10px'
-  },
-}
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 const data = [
   {
@@ -45,13 +31,13 @@ const Drawer = () => (
   <ResponsiveDrawer
     width={150}
   >
-    <div style={styles.drawer_container}>
-      <div style={styles.drawer_header_container}>
+    <div className={css(styles.Drawer__Container)}>
+      <div className={css(styles.Drawer__HeaderContainer)}>
         {data.map(function(result) {
           return(
             <div key={result.label}>
               <Link to={result.linkTo}
-                style={{textDecoration: 'none'}}>
+                className={css(styles.Drawer__MenuItemLink)}>
                 <MenuItem>
                   <FontAwesome name={result.fontAwesomeIcon} />
                   {result.label}
@@ -64,5 +50,26 @@ const Drawer = () => (
     </div>
   </ResponsiveDrawer>
 )
+
+const styles = StyleSheet.create({
+  Drawer__Container: {
+    backgroundColor: 'green',
+    height: '100%',
+    width: '150px',
+  },
+
+  Drawer__Header: {
+    margin: '0px',
+    paddingBottom: '10px',
+  },
+
+  Drawer_HeaderContainer: {
+    padding: '10px',
+  },
+
+  Drawer__MenuItemLink: {
+    textDecoration: 'none',
+  }
+});
 
 export default Drawer;

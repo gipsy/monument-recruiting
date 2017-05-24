@@ -18,6 +18,7 @@ import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 import NotificationsNone from 'material-ui-icons/NotificationsNone';
 import Textsms from 'material-ui-icons/Textsms';
+import { StyleSheet, css } from 'aphrodite/no-important';
 
 import UserNotificationsMenu from './UserNotificationsMenu';
 import userAvatarPlaceholder from 'avatar-placeholder.png';
@@ -88,8 +89,8 @@ class FixedAppBar extends Component {
       <ResponsiveAppBar
         width={150}
         children={
-          <div className="FixedAppBar__UserActions">
-            <div className="FixedAppBar__UserNotifications">
+          <div className={css(styles.FixedAppBar__UserActions)}>
+            <div className={css(styles.FixedAppBar__UserNotifications)}>
               <IconButton>
                 <Badge
                   badgeContent={11}
@@ -119,16 +120,16 @@ class FixedAppBar extends Component {
                   horizontal: 'left'
                 }}
                 children={
-                  <div className="FixedAppBar__UserNotificationsMenu">
+                  <div className={css(styles.FixedAppBar__UserNotificationsMenu)}>
                     <UserNotificationsMenu />
                   </div>
                 }
               />
             </div>
-            <div className="FixedAppBar__UserMenu">
+            <div className={css(styles.FixedAppBar__UserMenu)}>
               <Chip
                 onTouchTap={this.handleTouchTapUserMenu}
-                className="FixedAppBar__UserMenuTrigger"
+                className={css(styles.FixedAppBar__UserMenuTrigger)}
                 avatar={
                   <Avatar src={userAvatarPlaceholder} />
                 }
@@ -171,5 +172,42 @@ class FixedAppBar extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  FixedAppBar: {
+  },
+
+  FixedAppBar__UserActions: {
+    flex: '1 1 0%',
+    textAlign: 'right',
+  },
+
+  FixedAppBar__UserNotifications: {
+    display: 'inline-block',
+    marginRight: '20px',
+    verticalAlign: 'bottom',
+  },
+
+  FixedAppBar__UserMenu: {
+    display: 'inline-block',
+    verticalAlign: 'top',
+    marginTop: '7px',
+  },
+
+  FixedAppBar__UserMenuTrigger: {
+    cursor: 'pointer',
+    color: '#fff',
+    backgroundColor: 'transparent',
+  },
+
+  FixedAppBar__UserNotificationsMenu: {
+    width: '370px',
+
+    '@media (max-width: 375px)': {
+      width: '100%',
+    }
+  },
+
+});
 
 export default reduxify(actions, ['ui'], FixedAppBar);
