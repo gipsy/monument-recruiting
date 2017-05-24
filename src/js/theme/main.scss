@@ -6,14 +6,6 @@
 
 @import './mixins';
 
-// Components
-@import './components/component.Page';
-@import './components/component.Navigation';
-@import './components/component.Logo';
-@import './components/component.NavLink';
-@import './components/component.ToolbarFixed';
-@import './components/component.FixedAppBar';
-
 html, body {
   -webkit-overflow-scrolling: touch;
   height: 100%;
