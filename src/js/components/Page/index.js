@@ -13,7 +13,7 @@ class Page extends Component {
 
   render() {
     return (
-      <div className="Page">
+      <div className={css(styles.Page)}>
         <Grid fluid>
           <Row>
             <Col xs={12} md={12}>
