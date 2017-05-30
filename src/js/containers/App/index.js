@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import reduxify from '../../util/reduxify';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { BodyContainer } from 'material-ui-responsive-drawer';
 
-import Page from '../../components/Page';
-import FixedAppBar from '../../components/FixedAppBar';
-import Drawer from '../../components/Drawer';
+import Page from 'components/Page';
+import FixedAppBar from 'components/FixedAppBar';
+import Drawer from 'components/Drawer';
 
-import personalTheme from '../../theme/personalTheme';
+import { personalTheme } from 'theme/personalTheme';
 
-// #TODO investigate JSS vs Aphrodite vs current
-// import { StyleSheet, css } from 'aphrodite';
 import './style.scss';
 
 const App = (props) => (
@@ -34,9 +31,11 @@ const App = (props) => (
           : null
         }
 
-        <ReactCSSTransitionGroup
+        <CSSTransitionGroup
           component={Page}
           transitionName="example"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300}
         >
@@ -45,7 +44,7 @@ const App = (props) => (
               key: location.pathname
             }
           )}
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       </BodyContainer>
     </div>
   </MuiThemeProvider>

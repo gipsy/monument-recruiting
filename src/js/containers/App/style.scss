@@ -1,19 +1,11 @@
-@import '../../theme/main.scss';
+$fa-font-path: '~font-awesome/fonts/';
+@import '~font-awesome/scss/font-awesome';
 
 .App {
-  background-color: $verylightgray;
+  background-color: '#ededed';
 }
 
-// main {
-//   display: flex;
-//   flex-direction: column;
-//   height: 100%;
-//   > section {
-//     display: flex;
-//     flex-direction: column;
-//   }
-//   section {
-//     height: 400px;
-//     flex: 1;
-//   }
-// }
+html,
+body {
+  height: 100%;
+}

@@ -1,40 +1,57 @@
 import createMuiTheme from 'material-ui/styles/theme';
+import createStyleSheet from 'material-ui/styles/theme'
+import createPalette from 'material-ui/styles/palette';
+// import createBreakpoints from 'material-ui/styles/breakpoints';
+import {
+  blue,
+  lightBlue,
+  blueGrey,
+  darkBlack,
+  lightBlack,
+  white,
+  orange,
+  red,
+  indigo
+} from 'material-ui/styles/colors';
+import { fade } from 'material-ui/styles/colorManipulator';
 
-import {grey, amber, red} from 'material-ui/styles/colors'
 
-import createPalette from 'material-ui/styles/palette'
 
-import * as Colors from 'material-ui/styles/colors';
-// import * as ColorManipulator from 'material-ui/utils/colorManipulator';
-// import * as Spacing from 'material-ui/styles/spacing';
-// import * as zIndex from 'material-ui/styles/zIndex';
-
-// zIndex.appBar = 2000;
-
-// export default {
-//     spacing: Spacing,
-//     zIndex: zIndex,
-//     fontFamily: 'Roboto, sans-serif',
-//     palette: {
-//         primary1Color: Colors.cyan500,
-//         primary2Color: Colors.cyan700,
-//         primary3Color: Colors.lightBlack,
-//         accent1Color: Colors.pinkA200,
-//         accent2Color: Colors.grey100,
-//         accent3Color: Colors.grey500,
-//         textColor: Colors.darkBlack,
-//         alternateTextColor: Colors.white,
-//         canvasColor: Colors.grey100,
-//         borderColor: Colors.grey300,
-//         disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
-//         pickerHeaderColor: Colors.cyan500,
-//     }
-// };
 export const personalTheme = createMuiTheme({
+  fontFamily: 'Roboto, sans-serif',
+  status: {
+    danger: 'red',
+  },
+
   palette: createPalette({
-    primary: grey,
-    accent: amber,
-    error: red,
-    type: 'dark'
-  })
-})
+    primary: {
+      ...lightBlue,
+      500: '#0697d7',
+    },
+    accent: {
+      ...orange,
+      A200: '#f79027',
+    },
+  }),
+
+  avatar: {
+    borderColor: lightBlue,
+  },
+
+  overrides: {
+    MuiToolbar: {
+      root: {
+        backgroundColor: '#ededed',
+
+      },
+    },
+  },
+
+  // breakpoints: createBreakpoints({
+  //   xs: 360,
+  //   sm: 600,
+  //   md: 960,
+  //   lg: 1280,
+  //   xl: 1920
+  // }),
+});

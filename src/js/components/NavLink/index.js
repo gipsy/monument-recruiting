@@ -1,5 +1,4 @@
 import React from 'react';
-import reduxify from '../../util/reduxify';
 
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router';
@@ -19,4 +18,30 @@ NavLink.propTypes = {
   styles: PropTypes.object.isRequired,
 };
 
-export default reduxify({}, [], NavLink);
+const styles = StyleSheet.create({
+  NavList: {
+    padding: '35px 25px',
+    margin: '-6px 6px 0',
+    borderRadius: '6px',
+    fontSize: '16px',
+    color: 'gray',
+    border: '1px solid lightgray',
+    textDecoration: 'none'
+  },
+
+  hover: {
+    ':hover': {
+      color: 'black',
+      textDecoration: 'underline',
+      boxShadow: '0 1px 4px 1px darkgray',
+    }
+  }
+
+  selected: {
+    color: 'black',
+    textDecoration: 'underline',
+    boxShadow: '0 1px 4px 1px darkgray',
+  }
+});
+
+export default NavLink;

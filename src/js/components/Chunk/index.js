@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import reduxify from '../../util/reduxify';
 
 import Loading from 'components/Loading';
 

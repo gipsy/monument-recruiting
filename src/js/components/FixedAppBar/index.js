@@ -1,33 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import reduxify from '../../util/reduxify';
 
 import { ResponsiveAppBar } from 'material-ui-responsive-drawer';
-import Button from 'material-ui/Button';
 import Badge from 'material-ui/Badge';
-import Icon from 'material-ui/Icon';
-import SvgIcon from 'material-ui/SvgIcon';
 import IconButton from 'material-ui/IconButton';
-import Menu from 'material-ui/Menu/Menu';
 import MenuList from 'material-ui/Menu/MenuList';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import Popover from 'material-ui/internal/Popover';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
-import NotificationsNone from 'material-ui-icons/NotificationsNone';
-import Textsms from 'material-ui-icons/Textsms';
 import { StyleSheet, css } from 'aphrodite/no-important';
+import FontAwesome from 'react-fontawesome';
 
 import UserNotificationsMenu from './UserNotificationsMenu';
 import userAvatarPlaceholder from 'avatar-placeholder.png';
 
 // Action Creators
-import * as actions from '../../actions/ui';
+// import * as actions from '../../actions/ui';
 
 
-let userName = 'JoeBanks'
+let userName = 'JoeBanks';
 
 class FixedAppBar extends Component {
   constructor(props) {
@@ -76,10 +69,10 @@ class FixedAppBar extends Component {
     //     phase: PropTypes.string.isRequired,
     //     user: PropTypes.object
     // }),
-    dispatch: PropTypes.func.isRequired,
-    ui: PropTypes.shape({
-      UI_USER_MENU_VISIBILITY: PropTypes.bool.isRequired
-    })
+    // dispatch: PropTypes.func.isRequired,
+    // ui: PropTypes.shape({
+    //   UI_USER_MENU_VISIBILITY: PropTypes.bool.isRequired
+    // })
   }
 
   render() {
@@ -87,6 +80,7 @@ class FixedAppBar extends Component {
 
     return (
       <ResponsiveAppBar
+        className={css(styles.FixedAppBar)}
         width={150}
         children={
           <div className={css(styles.FixedAppBar__UserActions)}>
@@ -96,7 +90,10 @@ class FixedAppBar extends Component {
                   badgeContent={11}
                   accent={true}
                 >
-                  <Textsms />
+                  <FontAwesome
+                    className={css(styles.FixedAppBar__UserNotificationsMenuIcon)}
+                    name={'commenting-o'}
+                  />
                 </Badge>
               </IconButton>
               <IconButton
@@ -107,7 +104,10 @@ class FixedAppBar extends Component {
                   badgeContent={5}
                   accent={true}
                 >
-                  <NotificationsNone />
+                  <FontAwesome
+                    className={css(styles.FixedAppBar__UserNotificationsMenuIcon)}
+                    name={'bell-o'}
+                  />
                 </Badge>
               </IconButton>
               <Popover
@@ -175,6 +175,8 @@ class FixedAppBar extends Component {
 
 const styles = StyleSheet.create({
   FixedAppBar: {
+    backgroundColor: '#fff',
+    color: 'red',
   },
 
   FixedAppBar__UserActions: {
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
 
   FixedAppBar__UserMenuTrigger: {
     cursor: 'pointer',
-    color: '#fff',
+    color: '#564f4b',
     backgroundColor: 'transparent',
   },
 
@@ -208,6 +210,10 @@ const styles = StyleSheet.create({
     }
   },
 
+  FixedAppBar__UserNotificationsMenuIcon: {
+    color: '#0697d7'
+  },
+
 });
 
-export default reduxify(actions, ['ui'], FixedAppBar);
+export default FixedAppBar;
