@@ -14,6 +14,7 @@ export function fetchFromApi(userId) {
 }
 
 export function* requestFetchFromApi(action) {
+    console.log(action)
     try {
         const data = yield call(fetchFromApi, action.userId);
         yield put(fetchApiSuccess(data));
