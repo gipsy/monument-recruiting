@@ -18,11 +18,6 @@ import Dispute from './routes/Dispute';
 import AddSearches from './routes/AddSearches';
 import NotFound from './components/NotFound';
 
-import rootSaga from './sagas'
-
-// const store = configureStore(window.__INITIAL_STATE__)
-// store.runSaga(rootSaga)
-
 injectTapEventPlugin();
 
 // for React-Redux-Router. Redux store will now have access
@@ -31,6 +26,9 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 /* While we could, we choose NOT to use code splitting */
 
+// Log the initial state
+console.log('store.getState()')
+console.log(store.getState())
 
 // Render it to DOM
 ReactDOM.render(

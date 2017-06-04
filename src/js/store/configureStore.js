@@ -9,13 +9,11 @@ import {
 } from 'redux';
 import { browserHistory } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
-import { fromJS } from 'immutable';
 import { responsiveStoreEnhancer } from 'redux-responsive';
 
 import rootReducer from '../reducers/index';
+import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import rootSaga from '../sagas';
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -25,24 +23,20 @@ let logger = createLogger({
   collapsed: true,
 });
 
-const sagaMiddleware = createSagaMiddleware();
-
 const enhancer =
-  isDev ? compose(responsiveStoreEnhancer, applyMiddleware(routerMiddleware(browserHistory), logger, sagaMiddleware,))
-        : compose(responsiveStoreEnhancer, applyMiddleware(routerMiddleware(browserHistory)), sagaMiddleware,);
+  isDev ? compose(responsiveStoreEnhancer, applyMiddleware(thunk, routerMiddleware(browserHistory), logger))
+        : compose(responsiveStoreEnhancer, applyMiddleware(thunk, routerMiddleware(browserHistory)));
 
 const configureStore = (initialState) => 
-
   createStore(
     rootReducer,
-    fromJS(initialState),
+    initialState,
     enhancer
   );
 
 const store = configureStore();
 
 // Extensions
-store.runSaga = sagaMiddleware.run(rootSaga);
 store.asyncReducers = {}; // Async reducer registry
 
 // Make reducers hot reloadable, see http://mxs.is/googmo

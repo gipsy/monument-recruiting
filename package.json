@@ -73,7 +73,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "es6-promise": "^4.1.0",
     "font-awesome": "^4.7.0",
-    "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "material-ui": "^1.0.0-alpha.14",
@@ -106,9 +105,7 @@
     "redux-form-material-ui": "^4.2.0",
     "redux-menu": "^0.0.2",
     "redux-responsive": "^4.1.1",
-    "redux-saga": "^0.15.3",
     "redux-thunk": "^2.0.1",
-    "reselect": "^3.0.1",
     "superagent": "^3.5.2"
   },
   "description": "Boilerplate for React, Redux, Webpack 2, React-Router, etc.",
