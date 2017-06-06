@@ -9,7 +9,7 @@ import { BodyContainer } from 'material-ui-responsive-drawer';
 import Page from 'components/Page';
 import FixedAppBar from 'components/FixedAppBar';
 import Drawer from 'components/Drawer';
-import { fetchData, uiDataHasErrored, uiDataIsLoading, uiFetchDataSuccess } from '../../actions/ui';
+import { fetchData } from '../../actions/ui';
 
 import { personalTheme } from 'theme/personalTheme';
 
@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log(this.props)
-    this.props.action.fetchData("https://anypoint.mulesoft.com/apiplatform/proxy/https://mocksvc.mulesoft.com/mocks/b65d9d4c-9561-4301-9365-5d8fafef1878/api/v1/subject/{craURI}/resources/{clientID}");
+    this.props.action.fetchData("https://mocksvc.mulesoft.com/mocks/ffd040a0-6b7c-40dd-8383-eecfa76b9bc5/api/v1/subject/asdf/resources/asdf");
   }
 
   render() {
@@ -88,6 +88,6 @@ class App extends Component {
 
 export default reduxify(
   { fetchData },
-  [ 'fetchedData', 'hasErrored', 'isLoading' ],
+  [ 'uiDataHasErrored', 'uiDataIsLoading', 'uiDataFetchSuccess' ],
   App
 );

@@ -1,5 +1,9 @@
 import fetch from 'isomorphic-fetch';
-//import { uiDataFetchSuccess, uiDataHasErrored, uiDataIsLoading } from '../reducers/ui'
+import {
+  UI_DATA_IS_LOADING,
+  UI_DATA_FETCH_SUCCESS,
+  UI_DATA_HAS_ERRORED,
+} from '../constants/actionTypes';
 
 export function fetchData(url) {
   return (dispatch) => {
@@ -19,20 +23,20 @@ export function fetchData(url) {
 }
 
 export function uiDataHasErrored(bool) {
-    return {
-        type: 'UI_DATA_HAS_ERRORED',
-        hasErrored: bool
-    };
+  return {
+    type: UI_DATA_HAS_ERRORED,
+    hasErrored: bool
+  };
 }
 export function uiDataIsLoading(bool) {
-    return {
-        type: 'UI_DATA_IS_LOADING',
-        isLoading: bool
-    };
+  return {
+    type: UI_DATA_IS_LOADING,
+    isLoading: bool
+  };
 }
-export function uiFetchDataSuccess(data) {
-    return {
-        type: 'UI_DATA_FETCH_SUCCESS',
-        data
-    };
+export function uiDataFetchSuccess(uiData) {
+  return {
+    type: UI_DATA_FETCH_SUCCESS,
+    uiData
+  };
 }

@@ -25,12 +25,12 @@ import { uiDataFetchSuccess, uiDataHasErrored, uiDataIsLoading } from './ui';
 //   ...allReducers
 // ));
 const appReducer = combineReducers({
-  uiDataFetchSuccess: uiDataFetchSuccess,
-  uiDataHasErrored: uiDataHasErrored,
-  uiDataIsLoading: uiDataIsLoading,
+  uiDataFetchSuccess,
+  uiDataHasErrored,
+  uiDataIsLoading,
   routing: routerReducer,
   browser: responsiveStateReducer,
-  responsiveDrawer: responsiveDrawer
+  responsiveDrawer
 });
 
 
