@@ -17,21 +17,14 @@ import { uiDataFetchSuccess, uiDataHasErrored, uiDataIsLoading } from './ui';
 // get a list of all reducers in an array (mostly for Placeholder's reduxify call)
 // export const allReducerNames = allReducers.reduce((pv, cv) => pv.concat(Object.keys(cv)), [])
 
-// const appReducer = combineReducers(Object.assign({}, {
-//     routing: routerReducer,
-//     browser: responsiveStateReducer,
-//     responsiveDrawer: responsiveDrawer
-//   },
-//   ...allReducers
-// ));
-const appReducer = combineReducers({
+const appReducer = combineReducers(Object.assign({}, {
   uiDataFetchSuccess,
   uiDataHasErrored,
   uiDataIsLoading,
   routing: routerReducer,
   browser: responsiveStateReducer,
   responsiveDrawer
-});
+}));
 
 
 const rootReducer = (state, action) => appReducer(state, action);

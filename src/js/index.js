@@ -26,10 +26,6 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 /* While we could, we choose NOT to use code splitting */
 
-// Log the initial state
-console.log('store.getState()')
-console.log(store.getState())
-
 // Render it to DOM
 ReactDOM.render(
   <Provider store={store}>
