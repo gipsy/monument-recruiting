@@ -46,7 +46,6 @@ const Drawer = (props) => {
       textAlign: 'right',
       backgroundSize: 'cover',
       position: 'relative',
-      // backgroundImage: `url(https://vero75.stage.deverus.com/${drawerBg})`,
 
       ':after': {
         content: '" "',
@@ -110,32 +109,46 @@ const Drawer = (props) => {
     },
   });
 
-  let drawerBg, responsive;
-
-  if (props.data) {
-    props.responsive.is.extraSmall ? responsive = '[750]' : null
-    props.responsive.is.small ? responsive = '[1334]' : null
-    props.responsive.is.medium ? responsive = '[1536]' : null
-    props.responsive.is.large ? responsive = '[2046]' : null
+  const getResponsiveBg = (media) => {
+    switch (media) {
+      case 'extraSmall':
+        console.log(props.data.backgroundURL[750])
+        return `url(https://vero75.stage.deverus.com${props.data.backgroundURL[750]})`
+      case 'small':
+        console.log(props.data.backgroundURL[1334])
+        return `url(https://vero75.stage.deverus.com${props.data.backgroundURL[1334]})`
+      case 'medium':
+        console.log(props.data.backgroundURL[1536])
+        return `url(https://vero75.stage.deverus.com${props.data.backgroundURL[1536]})`
+      case 'large':
+        console.log(props.data.backgroundURL[2048])
+        return `url(https://vero75.stage.deverus.com${props.data.backgroundURL[2048]})`
+      default:
+        return null;
+    }
   }
-  // console.log(props.data.backgroundURL)
 
   return props.data ? (
     <ResponsiveDrawer>
-      <div className={css(styles.Drawer__Container)} style={{ backgroundImage: `url(https://vero75.stage.deverus.com/${props.data.backgroundURL[750]})` }}>
+      <div className={css(styles.Drawer__Container)}
+        style={{backgroundImage: getResponsiveBg(props.responsive.mediaType)}}
+      >
         <div className={css(styles.Drawer__ContainerInner)}>
-          <IconButton
-            className={css(styles.Drawer__CloseIcon)}
-            onTouchTap={() => (
-              store.dispatch({
-                type: 'RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN'
-              })
-            )}
-          >
-            <FontAwesome
-              name={'close'}
-            />
-          </IconButton>
+          { props.responsive.mediaType != 'large' && (
+              <IconButton
+                className={css(styles.Drawer__CloseIcon)}
+                onTouchTap={() => (
+                  store.dispatch({
+                    type: 'RESPONSIVE_DRAWER_TOGGLE_DRAWER_OPEN'
+                  })
+                )}
+              >
+                <FontAwesome
+                  name={'close'}
+                />
+              </IconButton>
+            )
+          }
           <Logo data={props.data} />
           {data.map(function(result) {
             return(

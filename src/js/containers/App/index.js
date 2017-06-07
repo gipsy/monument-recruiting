@@ -18,7 +18,7 @@ import './style.scss';
 
 class App extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.action.fetchData("https://mocksvc.mulesoft.com/mocks/ffd040a0-6b7c-40dd-8383-eecfa76b9bc5/api/v1/subject/asdf/resources/asdf");
   }
 
